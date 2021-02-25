@@ -24,13 +24,12 @@ const loginSelectors = {
   loginButton: () => cy.get('[type="submit"]'),
 };
 
-
 describe("Edit save", () => {
   beforeEach(() => {
     cy.visit("https://cypress-training-page-wpaczula.vercel.app/2/edit-save");
-      loginSelectors.emailInput().type("test@user.com");
-      loginSelectors.passwordInput().type("Password123");
-      loginSelectors.loginButton().click();
+    loginSelectors.emailInput().type("test@user.com");
+    loginSelectors.passwordInput().type("Password123");
+    loginSelectors.loginButton().click();
   });
 
   it("should increase number of emojis by 1 using arrow", () => {

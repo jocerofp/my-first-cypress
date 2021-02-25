@@ -12,10 +12,12 @@ const loginSelectors = {
 
 describe("Simulating requests", () => {
   beforeEach(() => {
-    cy.visit("https://cypress-training-page-wpaczula.vercel.app/2/simulating-requests");
+    cy.visit(
+      "https://cypress-training-page-wpaczula.vercel.app/2/simulating-requests"
+    );
     loginSelectors.emailInput().type("test@user.com");
-      loginSelectors.passwordInput().type("Password123");
-      loginSelectors.loginButton().click();
+    loginSelectors.passwordInput().type("Password123");
+    loginSelectors.loginButton().click();
   });
 
   it("should show information if blik succeeded", () => {
