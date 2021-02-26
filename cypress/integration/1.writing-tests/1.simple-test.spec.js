@@ -1,3 +1,11 @@
+// 🐼 Uzyteczne metody:
+// cy.get(CSS-SELECTOR) - wybierz element
+// cy.get(CSS-SELECTOR, TEXT) - wybierz element po tekście (mozesz uwzglednic takze selektor)
+// .type(TEXT) - wpisz w input
+// .select(TEXT) - wybierz z dropdowna
+// .click() - kliknij myszą
+// .should('be.visible')
+
 describe('Greeting form', () => {
     /*
     Test case 1
