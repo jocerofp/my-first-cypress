@@ -1,25 +1,13 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add("login", (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add("dismiss", { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+// 🐼 Uzyj tutaj swojej templatki do komendy
+
+/*
+Cypress.Commands.add('COMMAND_NAME', (...ARGUMENTS) => {
+
+ // BODY OF THE COMMAND
+
+})
+*/
+
+// wypełnij jej nazwę -> będzie to nazwa metody dodanej do cy
+// jako ciało tej metody wpisz swoje wypełnianie formularza logowania
+// następnie uzyj jej w swoim folderze /integration/login.spec.js
