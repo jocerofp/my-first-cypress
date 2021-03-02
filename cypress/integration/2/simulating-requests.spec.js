@@ -34,7 +34,7 @@ describe("Simulating requests", () => {
     }).as("notFound");
     const phone = "123-123-123";
 
-    simulatingRequestsPage.ammountInput().type(50);
+    simulatingRequestsPage.ammountInput().type(5000);
     simulatingRequestsPage.phoneInput().type(phone);
     simulatingRequestsPage.sendButton().click();
     cy.wait("@notFound");
@@ -49,7 +49,7 @@ describe("Simulating requests", () => {
       fixture: "simulating-errors/lack-of-funds.json",
       statusCode: 403,
     }).as("lackOfFunds");
-    const amount = 50;
+    const amount = 5000;
 
     simulatingRequestsPage.ammountInput().type(amount);
     simulatingRequestsPage.phoneInput().type("123-123-123");
@@ -62,8 +62,8 @@ describe("Simulating requests", () => {
   });
 
   it("should show information if blik succeeded", () => {
-    const amount = 50;
-    const phone = "123-123-123";
+    const amount = 5000;
+    const phone = "000-000-000";
 
     simulatingRequestsPage.ammountInput().type(amount);
     simulatingRequestsPage.phoneInput().type(phone);
