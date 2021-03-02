@@ -9,16 +9,16 @@
 // znaczy to, że możesz szukać za pomocą klas, id czy atrybutów dodanych do htmla
 // poniżej znajduje się parę przykładów
 
-cy.get("button"); // znajdź element button
-cy.get("#my-id"); // znajdź element o id my-id
-cy.get('[name="email"]'); // znajdź element o atrybucie name równym "email"
+cy.get("button");                               // znajdź element button
+cy.get("#my-id");                               // znajdź element o id my-id
+cy.get('[name="email"]');                       // znajdź element o atrybucie name równym "email"
 
 // ============================ METODA FIND ============================
 
 // 🐼 Metoda find pozwala wyszukać element na wybranej części dokumentu
 // zazwyczaj możesz jej użyć po tym, jak wyszukasz już coś za pomocą metody get
 
-cy.get("#container").find(".toast"); // znajdź element o id "container" i wewnątrz niego szukaj elementu z klasą .toast
+cy.get("#container").find(".toast");            // znajdź element o id "container" i wewnątrz niego szukaj elementu z klasą .toast
 
 // ============================ METODA CONTAINS ============================
 
@@ -26,8 +26,9 @@ cy.get("#container").find(".toast"); // znajdź element o id "container" i wewn�
 // Możesz w niej również określić cssowy selektor, który dokładniej pozwoli
 // zidentyfikować wyszukiwany element. Można ją również łączyć tak jak metodę find
 
-cy.contains("Save"); // znajdź element z tekstem "Save"
-cy.contains('.button[type="submit"]', "Save"); // znajdź submit button z tekstem "Save"
+cy.contains("Save");                            // znajdź element z tekstem "Save"
+cy.contains("/regex/");                         // znajdź element z tekstem spełniającym reges
+cy.contains('.button[type="submit"]', "Save");  // znajdź submit button z tekstem "Save"
 
 // ============================ METODA NEXT ============================
 
@@ -35,7 +36,7 @@ cy.contains('.button[type="submit"]', "Save"); // znajdź submit button z tekste
 
 // <label>Email</label>
 // <input name="email"/>
-cy.contains("Email").next(); // metoda pozwoliłaby wybrać input powyżej
+cy.contains("Email").next();                    // metoda pozwoliłaby wybrać input powyżej
 
 // ============================ METODY CHILDREN I PARENT ============================
 
@@ -47,7 +48,7 @@ cy.contains("Email").next(); // metoda pozwoliłaby wybrać input powyżej
 //    <li>Dos</li>
 //    <li>Tres</li>
 // </ol>
-cy.get(".list").children(); // metoda zwróci tablicę elementów li
+cy.get(".list").children();                     // metoda zwróci tablicę elementów li
 
 // ============================ METODA AS ============================
 
