@@ -1,4 +1,4 @@
-// 🐼 Uzyj tutaj swojej templatki do komendy
+// 🐼 Uzyj tutaj templatki dla nowej komendy
 
 /*
 Cypress.Commands.add('COMMAND_NAME', (...ARGUMENTS) => {
