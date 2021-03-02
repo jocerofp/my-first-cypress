@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 describe('Get my emoji', () => {
     /*
     Test case 1

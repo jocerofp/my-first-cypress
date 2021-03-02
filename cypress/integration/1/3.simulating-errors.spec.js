@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 describe('Make my blik payment', () => {
     /*
     Test case 1

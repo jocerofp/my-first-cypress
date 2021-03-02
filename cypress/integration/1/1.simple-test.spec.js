@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 describe('Greeting form', () => {
     /*
     Test case 1

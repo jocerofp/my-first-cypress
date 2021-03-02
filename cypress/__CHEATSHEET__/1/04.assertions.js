@@ -7,22 +7,33 @@
 // 🐼 Metoda should przyjmuje dwa parametry - predykat i opcjonalnie wartość. Poniżej znajduje się parę opcji,
 // więcej podpowie ci vs code po załadowaniu typów
 
-cy.should("equal", 5);
-cy.should("be.visible");
-cy.should("be.disabled");
-cy.should("not.be.greaterThan", 5);
-cy.should("have.text", "text");
-cy.should("have.length", 5);
+cy.get('ul').children().its('length').should("equal", 5);       // sprawdź czy liczba dzieci (tagów li) jest równa 5
+cy.should("have.length", 5);                                    // inny sposób na sprawdzenie długości
+cy.get('.message').should("be.visible");                        // sprawdź czy element z klasą message jest widoczny
+cy.get('button').should("be.disabled");                         // sprawdź czy button jest nieaktywny
+cy.get('p').should("have.text", "text");                        // sprawdź czy paragraf ma tekst "text"
 
 // ================================= METODA EXPECT ==========================================
 
-// 🐼 Czasami może się zdarzyć, że wywołanie asercji nie będzie bezpośrednio połączone z łańcuchem wywołań rozpoczynanym
-// od cy. Wtedy można użyć metody expect. Ma ona trochę inną deklarację, ponieważ przyjmuje wartość, którą chcemy sprawdzić.
-// Następnie po kropce można znaleźć odpowiedniki z metody should
+// 🐼 Cypress pozwala też na sprawdzanie wartości poza "łańcuchem wywołań". W tym przypadku można użyć metody expect,
+// która pozwala na dokładnie te same asercje.
 
 expect(value).to.equal(5);
+expect(array).to.have.length(5);
 expect(element).to.be.visible();
 expect(element).to.be.disabled();
-expect(value).not.to.be.greaterThan(5);
 expect(element).to.have.text("text");
-expect(array).to.have.length(5);
+
+// Poniżej znajduje się możliwy przypadek - pobieranie liczby elementów, strzał do API i porównanie
+// czy liczba elementów w bazie zgadza się z tą wyświetloną na UI.
+
+cy.get('.element')
+    .children()
+    .its('length')
+    .then(length => {
+        requestAPIToGetLength()
+        .then((lenghtFromApi) => {
+            expect(length).to.equal(lenghtFromApi)
+        })
+})
+

@@ -1,23 +1,27 @@
-const simulatingRequestsSelectors = {
+/// <reference types="cypress" />
+
+// PAGE OBJECTS
+const simulatingRequestsPage = {
   ammountInput: () => cy.get('[name="amount"]'),
   phoneInput: () => cy.get('[name="phone"]'),
   sendButton: () => cy.get('[type="submit"]'),
 };
 
-const loginSelectors = {
+const loginPage = {
   emailInput: () => cy.get('[name="email"]'),
   passwordInput: () => cy.get('[name="password"]'),
   loginButton: () => cy.get('[type="submit"]'),
 };
 
+// TESTS
 describe("Simulating requests", () => {
   beforeEach(() => {
     cy.visit(
       "https://cypress-training-page-wpaczula.vercel.app/2/simulating-requests"
     );
-    loginSelectors.emailInput().type("test@user.com");
-    loginSelectors.passwordInput().type("Password123");
-    loginSelectors.loginButton().click();
+    loginPage.emailInput().type("test@user.com");
+    loginPage.passwordInput().type("Password123");
+    loginPage.loginButton().click();
   });
 
   it("should show information if blik succeeded", () => {
@@ -25,9 +29,9 @@ describe("Simulating requests", () => {
     const amount = 50;
     const phone = "123-123-123";
 
-    simulatingRequestsSelectors.ammountInput().type(amount);
-    simulatingRequestsSelectors.phoneInput().type(phone);
-    simulatingRequestsSelectors.sendButton().click();
+    simulatingRequestsPage.ammountInput().type(amount);
+    simulatingRequestsPage.phoneInput().type(phone);
+    simulatingRequestsPage.sendButton().click();
     cy.wait("@lackOfFunds");
 
     cy.contains(
@@ -42,9 +46,9 @@ describe("Simulating requests", () => {
     }).as("notFound");
     const phone = "123-123-123";
 
-    simulatingRequestsSelectors.ammountInput().type(50);
-    simulatingRequestsSelectors.phoneInput().type(phone);
-    simulatingRequestsSelectors.sendButton().click();
+    simulatingRequestsPage.ammountInput().type(50);
+    simulatingRequestsPage.phoneInput().type(phone);
+    simulatingRequestsPage.sendButton().click();
     cy.wait("@notFound");
 
     cy.contains(
@@ -59,9 +63,9 @@ describe("Simulating requests", () => {
     }).as("lackOfFunds");
     const amount = 50;
 
-    simulatingRequestsSelectors.ammountInput().type(amount);
-    simulatingRequestsSelectors.phoneInput().type("123-123-123");
-    simulatingRequestsSelectors.sendButton().click();
+    simulatingRequestsPage.ammountInput().type(amount);
+    simulatingRequestsPage.phoneInput().type("123-123-123");
+    simulatingRequestsPage.sendButton().click();
     cy.wait("@lackOfFunds");
 
     cy.contains(

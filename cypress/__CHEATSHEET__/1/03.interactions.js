@@ -1,13 +1,18 @@
+// ============================ SYMULOWANIE USERA ============================
+
 // 🐼 Cypress ma wbudowane wiele funkcji, które pozwalają na interakcję ze znalezionymi elementami.
 // Większość z ich nazw może być bardzo intuicyjna. Poniżej znajdziesz parę, które mogą ci się przydać w ćwiczeniach
+// Załóż, że funkcja element to twoja metoda z page objectu, która zwraca element 
 
-cy.click(); // kliknij w element na stronie
-cy.focus(); // sfocusuj element
-cy.type(); // wpisz tekst do inputa, lub wciśnij przycisk na klawiaturze (należy podać string z jego nazwą np. {ENTER})
-cy.clear(); // wyczyść input
-cy.check(); // zaznacz i odznacz checkbox
-cy.uncheck();
-cy.select(); // wybierz opcję w dropdownie
+cy.get('button').click();                       // kliknij w element na stronie
+cy.get('input').focus();                        // sfocusuj element
+cy.get('input').type('Text');                   // wpisz tekst do inputa, lub wciśnij przycisk na klawiaturze (należy podać string z jego nazwą np. {ENTER})
+cy.get('input').clear();                        // wyczyść input
+cy.get('[type="checkbox"]').check();            // zaznacz i odznacz checkbox
+cy.get('[type="checkbox"]').uncheck();
+cy.get('[type="select"]').select('Option 1');   // wybierz opcję w dropdownie
+
+// ============================ SYMULOWANIE KONKRETNEGO ZACHOWANIA API ============================
 
 // 🐼 Oprócz tego przyda ci się także stubowanie requestów z przeglądarki. Dzięki temu możesz
 // upewnić się, że request został zrobiony. Pamiętaj aby zapisać odniesienie do requestu do aliasu i wywołać
@@ -16,6 +21,7 @@ cy.select(); // wybierz opcję w dropdownie
 cy.intercept("GET", "http://my-api.com/things").as("request");
 cy.wait("@request");
 
-// 🐼 Możesz również zapewnić określoną odpowiedź serwera na przykład poprzez ładowanie swojego pliku fixture (wystarczy, że wrzucisz jsona do folderu fixtures)
+// 🐼 Możesz również zapewnić określoną odpowiedź serwera na przykład poprzez ładowanie swojego pliku fixture (wystarczy, że wrzucisz jsona do folderu fixtures) i ustawianie
+// odpowiedniego statusu
 
-cy.intercept("POST", "http://my-api.com/things", { fixture: "fixture.json" });
+cy.intercept("POST", "http://my-api.com/things", { fixture: "fixture.json", statusCode: 404 });
