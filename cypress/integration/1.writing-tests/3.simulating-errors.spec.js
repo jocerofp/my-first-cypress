@@ -1,3 +1,7 @@
+// 🐼 Przydatne metody
+// cy.intercept(METHOD, URL, { fixture: FILE, statusCode: CODE }).as('request')
+// cy.wait('@request')
+
 describe('Make my blik payment', () => {
     /*
     Test case 1

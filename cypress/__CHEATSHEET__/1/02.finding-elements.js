@@ -50,12 +50,18 @@ cy.contains("Email").next();                    // metoda pozwoliłaby wybrać i
 // </ol>
 cy.get(".list").children();                     // metoda zwróci tablicę elementów li
 
+// ============================ METODA EQ ============================
+
+// 🐼 Jezeli bedziesz operować na liście elementów mozesz wybrac jeden o konkretnym indexie
+cy.get('#element').children().eq(1) // metoda zwróci drugi element
+
 // ============================ METODA AS ============================
 
 // 🐼 Czasem może się zdarzyć, że będziesz chciał zapisać element "na potem". Aby to zrobić możesz zapisać go za pomocą metody as(ALIAS),
 // a "potem" pobrać jego wartość za pomocą funkcji get(@ALIAS) - pamiętaj o znaku małpy, dzięki temu cypress wie, że ma szukać w aliasach
 
-cy.get(".use-later").as("later");
+cy.get(".use-later")
+.as("later");
 
 // ...
 

@@ -17,11 +17,11 @@ cy.get('[type="select"]').select('Option 1');   // wybierz opcję w dropdownie
 // 🐼 Oprócz tego przyda ci się także stubowanie requestów z przeglądarki. Dzięki temu możesz
 // upewnić się, że request został zrobiony. Pamiętaj aby zapisać odniesienie do requestu do aliasu i wywołać
 // metodę wait wtedy kiedy spodziewasz się jego realizacji
+// WAŻNE - intercept powinien być zadeklarowany jako pierwszy 
 
 cy.intercept("GET", "http://my-api.com/things").as("request");
 cy.wait("@request");
 
-// 🐼 Możesz również zapewnić określoną odpowiedź serwera na przykład poprzez ładowanie swojego pliku fixture (wystarczy, że wrzucisz jsona do folderu fixtures) i ustawianie
-// odpowiedniego statusu
-
+// 🐼 Możesz również zapewnić określoną odpowiedź serwera na przykład poprzez ładowanie swojego pliku fixture (wystarczy, że wrzucisz jsona do folderu fixtures)
+// mozna tez zmieniac status odpowiedzi poprzez property statusCode
 cy.intercept("POST", "http://my-api.com/things", { fixture: "fixture.json", statusCode: 404 });
