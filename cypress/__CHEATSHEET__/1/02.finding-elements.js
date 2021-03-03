@@ -13,6 +13,18 @@ cy.get("button");                               // znajdź element button
 cy.get("#my-id");                               // znajdź element o id my-id
 cy.get('[name="email"]');                       // znajdź element o atrybucie name równym "email"
 
+// ===== WAŻNA SPRAWA =====
+// Cypress nie ma wsparcia dla XPathów. Nie jest to jednak do końca wada
+// CSSowe selektory są szybsze
+// Zespół cypressa poleca odizolowanie od stylowania i struktury HTMLa:
+
+cy.get('button')                                // niestabilny selektor, przestanie działać po dodaniu kolejnego przycisku
+cy.get('.button')                               // równiez przestanie działać po dodaniu innego przycisku
+cy.get('#submit-button')                        // lepiej, ale dalej połączony ze stylami albo jsowymi listenerami
+cy.get('[name=email]')                          // mniej podatne na zmianę, ale połączony ze semantyką HTMLa
+cy.contains('Submit')                           // userzy szukają elementów po tekście, w niektórych projektach tekst nie jest zmienny
+cy.get('[data-cy=submit]')                      // odizolowane od CSSa i HTMLa, ale wymaga wprowadzenia zmian do aplikacji
+
 // ============================ METODA FIND ============================
 
 // 🐼 Metoda find pozwala wyszukać element na wybranej części dokumentu

@@ -4,7 +4,8 @@ import staff from "module";
 
 describe("GROUP OF TESTS", () => {
   beforeEach(() => {
-    // 🐼 To idealne miejsce na powtarzające się funkcje takie jak wejście na stronę czy logowanie
+    // 🐼 To idealne miejsce na powtarzające się funkcje takie 
+    // jak wejście na stronę czy logowanie
   });
 
   it("should DO SOMETHING when SOMETHING HAPPENS", () => {});
