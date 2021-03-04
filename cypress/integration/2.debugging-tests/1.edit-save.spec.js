@@ -2,12 +2,12 @@
 const editSavePage = {
   emojis: () =>
     cy
-      .contains(/Twoje \d+ emoji/)
+      .contains(/Twoje emoji/)
       .next()
       .children(),
   newEmojis: () =>
     cy
-      .contains(/Twoje \d+ emoji/)
+      .contains(/Twoje emoji/)
       .next()
       .next()
       .invoke("text"),

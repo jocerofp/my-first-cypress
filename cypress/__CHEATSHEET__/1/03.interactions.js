@@ -25,3 +25,11 @@ cy.wait("@request");
 // 🐼 Możesz również zapewnić określoną odpowiedź serwera na przykład poprzez ładowanie swojego pliku fixture (wystarczy, że wrzucisz jsona do folderu fixtures)
 // mozna tez zmieniac status odpowiedzi poprzez property statusCode
 cy.intercept("POST", "http://my-api.com/things", { fixture: "fixture.json", statusCode: 404 });
+
+// ============================ WYCIAGANIE DANYCH ============================
+
+// 🐼 Metoda która przydaje się przy wyciąganiu propertasów danych elementów. Pozwala na sprawdzenie
+// długości tablicy list itemów lub tekstu, który znajduje się w paragrafie
+
+cy.get('ul').children().its('length')           // Pobierz liczbę dzieci w liście 
+cy.get('p').its('text')                         // Pobierz tekst paragrafu
