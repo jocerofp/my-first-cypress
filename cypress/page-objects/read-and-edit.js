@@ -1,4 +1,6 @@
+/// <reference types="cypress" />
+
 export const page = {
-    emojis: () => cy.get('').children().next().eq(1)
+    emojis() { return cy.get('').children().next().eq(1) } 
 }
 export default page;
