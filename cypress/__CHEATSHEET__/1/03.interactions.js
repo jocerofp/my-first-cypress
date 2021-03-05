@@ -28,8 +28,7 @@ cy.intercept("POST", "http://my-api.com/things", { fixture: "fixture.json", stat
 
 // ============================ WYCIAGANIE DANYCH ============================
 
-// 🐼 Metoda która przydaje się przy wyciąganiu propertasów danych elementów. Pozwala na sprawdzenie
-// długości tablicy list itemów lub tekstu, który znajduje się w paragrafie
+// 🐼 Metoda która przydaje się przy wyciąganiu właściwości danych elementów (tak naprawdę z uzyciem jQuery). 
+// Pozwala na sprawdzenie długości tablicy list itemów lub tekstu, który znajduje się w paragrafie
 
 cy.get('ul').children().its('length')           // Pobierz liczbę dzieci w liście 
-cy.get('p').its('text')                         // Pobierz tekst paragrafu

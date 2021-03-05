@@ -1,4 +1,6 @@
-import pageObject from '../../page-objects/read-and-edit'
+/// <reference types="cypress" />
+
+import readAndEditPage from '../../page-objects/read-and-edit'
 // 🐼 Uzyteczne metody:
 // cy.get(CSS-SELECTOR).as('alias') - zapisz "na pozniej"
 // cy.get('@alias').then((value) => { ... }) - pobierz zapisaną wartość
@@ -34,6 +36,6 @@ describe('Get my emoji', () => {
         Spodziewany rezultat: Liczba emoji pozostaje bez zmian, ale one same się zmieniają
     */
    it('should 2...', () => {
-    page.emojis()
+    readAndEditPage.emojis()
    })
 })

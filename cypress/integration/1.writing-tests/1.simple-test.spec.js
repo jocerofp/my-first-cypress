@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 // 🐼 Uzyteczne metody:
 // cy.get(CSS-SELECTOR) - wybierz element
 // cy.get(CSS-SELECTOR, TEXT) - wybierz element po tekście (mozesz uwzglednic takze selektor)

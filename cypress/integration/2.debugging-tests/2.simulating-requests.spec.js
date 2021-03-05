@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 // PAGE OBJECTS
 const simulatingRequestsPage = {
   ammountInput: () => cy.get('[name="amount"]'),

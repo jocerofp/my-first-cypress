@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 // ============================ PAGE OBJECT ============================
 const editSavePage = {
   emojis: () =>

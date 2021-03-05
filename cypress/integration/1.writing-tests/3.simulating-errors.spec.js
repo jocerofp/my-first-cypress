@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 // 🐼 Przydatne metody
 // cy.intercept(METHOD, URL, { fixture: FILE, statusCode: CODE }).as('request')
 // cy.wait('@request')
