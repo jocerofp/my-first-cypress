@@ -15,8 +15,8 @@ cy.get('p').should("have.text", "text");                        // sprawdź czy 
 
 // ================================= METODA EXPECT ==========================================
 
-// 🐼 Cypress pozwala też na sprawdzanie wartości poza "łańcuchem wywołań". W tym przypadku można użyć metody expect,
-// która pozwala na dokładnie te same asercje.
+// 🐼 Cypress pozwala też na sprawdzanie wartości poza "łańcuchem wywołań". W tym przypadku można użyć
+// metody expect, która pozwala na dokładnie te same asercje.
 
 expect(value).to.equal(5);
 expect(array).to.have.length(5);
@@ -24,16 +24,9 @@ expect(element).to.be.visible();
 expect(element).to.be.disabled();
 expect(element).to.have.text("text");
 
-// Poniżej znajduje się możliwy przypadek - pobieranie liczby elementów, strzał do API i porównanie
-// czy liczba elementów w bazie zgadza się z tą wyświetloną na UI.
-
-cy.get('.element')
-    .children()
-    .its('length')
-    .then(length => {
-        requestAPIToGetLength()
-        .then((lenghtFromApi) => {
-            expect(length).to.equal(lenghtFromApi)
-        })
+// 🐼 mozecie dzieki temu upewnić się, ze API działa
+callApi().then(response => {
+    expect(response.status).to.equal(200)
 })
+
 
