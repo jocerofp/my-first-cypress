@@ -9,7 +9,7 @@ import readAndEditPage from '../../page-objects/read-and-edit'
 // cy.get(CSS-SELECTOR).children().eq(0) - wybierz pierwsze dziecko elementu
 // cy.get(CSS-SELECTOR, TEXT) - wybierz element po tekście (mozesz uwzglednic takze selektor)
 // .check() - zaznacz znaleziony input
-// .expect(TEXT).to.have.length(length) - wywołaj asercję "poza łańcuchem wywołań"
+// .should('have.length', length) - sprawdź długość
 
 describe('Get my emoji', () => {
     /*

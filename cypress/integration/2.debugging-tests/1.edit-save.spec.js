@@ -2,29 +2,25 @@
 
 // ============================ PAGE OBJECT ============================
 const editSavePage = {
-  emojis: () =>
-    cy
-      .contains(/Twoje emoji/)
-      .next()
-      .children(),
-  newEmojis: () =>
-    cy
-      .contains(/Twoje emoji/)
-      .next()
-      .next()
-      .invoke("text"),
-  editButton: () => cy.contains('[type="button"]', "Edytuj"),
-  emojiIncreaseArrow: () =>
-    cy.get('[name="numberOfEmojis"]').next().children().eq(0),
-  notRobotCheckbox: () => cy.get('[name="isNotARobot"]'),
-  saveButton: () => cy.get('[type="submit"]'),
-  cancelButton: () => cy.contains('[type="button"]', "Anuluj"),
+  emojis() {
+    return cy
+    .contains(/Twoje emoji/)
+    .next()
+    .children()
+  },
+  editButton() { return cy.contains('[type="button"]', "Edytuj") },
+  emojiIncreaseArrow() {
+   return cy.get('[name="numberOfEmojis"]').next().children().eq(0)
+  },
+  notRobotCheckbox() { return cy.get('[name="isNotARobot"]') },
+  saveButton() { return cy.get('[type="submit"]') },
+  cancelButton() { return cy.contains('[type="button"]', "Anuluj") },
 };
 
 const loginPage = {
-  emailInput: () => cy.get('[name="email"]'),
-  passwordInput: () => cy.get('[name="password"]'),
-  loginButton: () => cy.get('[type="submit"]'),
+  emailInput() { return cy.get('[name="email"]') },
+  passwordInput() { return cy.get('[name="password"]') },
+  loginButton() { return cy.get('[type="submit"]') },
 };
 
 // ============================ TESTY ============================

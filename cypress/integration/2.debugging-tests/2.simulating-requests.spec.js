@@ -2,15 +2,15 @@
 
 // PAGE OBJECTS
 const simulatingRequestsPage = {
-  ammountInput: () => cy.get('[name="amount"]'),
-  phoneInput: () => cy.get('[name="phone"]'),
-  sendButton: () => cy.get('[type="submit"]'),
+  ammountInput() { return cy.get('[name="amount"]') },
+  phoneInput() { return cy.get('[name="phone"]') },
+  sendButton() { return cy.get('[type="submit"]') },
 };
 
 const loginPage = {
-  emailInput: () => cy.get('[name="email"]'),
-  passwordInput: () => cy.get('[name="password"]'),
-  loginButton: () => cy.get('[type="submit"]'),
+  emailInput() { return cy.get('[name="email"]') },
+  passwordInput() { return cy.get('[name="password"]') },
+  loginButton() { return cy.get('[type="submit"]') },
 };
 
 // ============================ TESTY ============================
