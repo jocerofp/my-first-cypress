@@ -62,15 +62,15 @@ describe("Simulating requests", () => {
   });
 
   it("should show information if blik succeeded", () => {
-    cy.intercept("POST", "/api/blik").as("lackOfFunds");
+    cy.intercept("POST", "/api/blik").as("request");
     const amount = 5000;
     const phone = "000-000-000";
 
     simulatingRequestsPage.ammountInput().type(amount);
     simulatingRequestsPage.phoneInput().type(phone);
     simulatingRequestsPage.sendButton().click();
-    simulatingRequestsSelectors.sendButton().click();
-    cy.wait("@lackOfFunds");
+    simulatingRequestsPage.sendButton().click();
+    cy.wait("@request");
 
     cy.contains(
       `Kwota ${amount}PLN została poprawnie przelana na numer ${phone}`
