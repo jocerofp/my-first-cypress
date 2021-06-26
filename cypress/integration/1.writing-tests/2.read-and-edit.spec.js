@@ -12,6 +12,12 @@ import readAndEditPage from '../../page-objects/read-and-edit'
 // .should('have.length', length) - sprawdź długość
 
 describe('Get my emoji', () => {
+    beforeEach(() => {
+        /*
+         * Tutaj możesz umieścić wejście na stronę + logowanie - ten krok powtarza się dla każdego test case'u 
+         */
+    })
+    
     /*
     Test case 1
         Wejdź na stronę /1/edit-save

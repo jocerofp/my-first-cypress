@@ -8,7 +8,7 @@ const loginPage = {
         return cy.contains('register') 
     },
     emailInput() { 
-        return  cy.get('?') 
+        return  cy.get('?')
     },
     passwordInput() {
         return cy.get('input[name="password"]')

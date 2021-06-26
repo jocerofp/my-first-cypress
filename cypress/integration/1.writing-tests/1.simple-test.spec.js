@@ -9,6 +9,11 @@
 // .should('be.visible')
 
 describe('Greeting form', () => {
+    beforeEach(() => {
+        /*
+         * Tutaj możesz umieścić wejście na stronę + logowanie - ten krok powtarza się dla każdego test case'u 
+         */
+    })
     /*
     Test case 1
         Wejdź na stronę /1/simple-test
