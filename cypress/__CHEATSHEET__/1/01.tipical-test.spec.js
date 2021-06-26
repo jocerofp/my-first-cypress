@@ -2,7 +2,7 @@
 
 // 🐼 Żeby dodać swój kolejny test stwórz plik o rozszerzeniu .spec.js w folderze integration
 // Na samej górze pliku możesz zaimportować tutaj swoje selektory lub inne funkcje przydatne dla tego testu
-import staff from "module";
+import yourThingy from "path/to/your/file";
 
 describe("GROUP OF TESTS", () => {
   beforeEach(() => {

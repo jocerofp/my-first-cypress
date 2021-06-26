@@ -73,8 +73,10 @@ cy.get('#element').children().eq(1) // metoda zwróci drugi element
 // a "potem" pobrać jego wartość za pomocą funkcji get(@ALIAS) - pamiętaj o znaku małpy, dzięki temu cypress wie, że ma szukać w aliasach
 
 cy.get(".use-later")
-.as("later");
+  .as("later");
 
 // ...
 
-cy.get("@later"); // 🐼 got'em
+cy.get("@later").then((myVariable) => {
+    // 🐼 myVariable będzie zawierał to co zapisaliśmy poprzez "as"
+}); 
