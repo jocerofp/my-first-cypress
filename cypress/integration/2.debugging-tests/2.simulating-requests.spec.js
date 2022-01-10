@@ -69,7 +69,6 @@ describe("Simulating requests", () => {
     simulatingRequestsPage.ammountInput().type(amount);
     simulatingRequestsPage.phoneInput().type(phone);
     simulatingRequestsPage.sendButton().click();
-    simulatingRequestsPage.sendButton().click();
     cy.wait("@request");
 
     cy.contains(
