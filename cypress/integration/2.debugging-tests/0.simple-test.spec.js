@@ -1,11 +1,11 @@
 const simpleTestPage = {
-	genderSelect() {
+	get genderSelect() {
 		return cy.get('[name="gender"]')
 	},
-	nameInput() {
+	get nameInput() {
 		return cy.get('[name="name"]')
 	},
-	sendButton() {
+	get sendButton() {
 		return cy.get('[type="submit"]')
 	},
 	helloManToast(name) {
@@ -14,26 +14,26 @@ const simpleTestPage = {
 }
 
 const loginPage = {
-    emailInput() { return cy.get('[name="email"]') },
-    passwordInput() { return cy.get('[name="password"]') },
-    loginButton() { return cy.get('[type="submit"]') },
+    get emailInput() { return cy.get('[name="email"]') },
+    get passwordInput() { return cy.get('[name="password"]') },
+    get loginButton() { return cy.get('[type="submit"]') },
 };
 
 describe('Simple test', () => {
 	beforeEach(() => {
 		cy.visit('/2/simple-test')
-		loginPage.emailInput().type("test@user.com");
-        loginPage.passwordInput().type("Password123");
-        loginPage.loginButton().click();
+		loginPage.emailInput.type("test@user.com");
+        loginPage.passwordInput.type("Password123");
+        loginPage.loginButton.click();
 	})
 
 	it('should display welcome message for man with a name', () => {
 		const name = 'Jan'
 		const gender = 'Mężczyzna'
 
-		simpleTestPage.genderSelect().select(gender)
-		simpleTestPage.nameInput().type(name)
-		simpleTestPage.sendButton().click()
+		simpleTestPage.genderSelect.select(gender)
+		simpleTestPage.nameInput.type(name)
+		simpleTestPage.sendButton.click()
 
 		simpleTestPage.helloManToast(name).should('be.visible')
 	})

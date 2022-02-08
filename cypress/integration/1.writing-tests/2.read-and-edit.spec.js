@@ -42,6 +42,6 @@ describe('Get my emoji', () => {
         Spodziewany rezultat: Liczba emoji pozostaje bez zmian, ale one same się zmieniają
     */
    it('should 2...', () => {
-    readAndEditPage.emojis()
+    readAndEditPage.emojis
    })
 })

@@ -1,3 +1,4 @@
 {
-	"baseUrl": "https://cypress-training-page-wpaczula.vercel.app"
+	"baseUrl": "https://cypress-training-page-wpaczula.vercel.app",
+	"ignoreTestFiles": "*.{steps,page}.js"
 }

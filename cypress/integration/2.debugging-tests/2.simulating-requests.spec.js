@@ -2,15 +2,15 @@
 
 // PAGE OBJECTS
 const simulatingRequestsPage = {
-  ammountInput() { return cy.get('[name="amount"]') },
-  phoneInput() { return cy.get('[name="phone"]') },
-  sendButton() { return cy.get('[type="submit"]') },
+  get ammountInput() { return cy.get('[name="amount"]') },
+  get phoneInput() { return cy.get('[name="phone"]') },
+  get sendButton() { return cy.get('[type="submit"]') },
 };
 
 const loginPage = {
-  emailInput() { return cy.get('[name="email"]') },
-  passwordInput() { return cy.get('[name="password"]') },
-  loginButton() { return cy.get('[type="submit"]') },
+  get emailInput() { return cy.get('[name="email"]') },
+  get passwordInput() { return cy.get('[name="password"]') },
+  get loginButton() { return cy.get('[type="submit"]') },
 };
 
 // ============================ TESTY ============================
@@ -22,9 +22,9 @@ describe("Simulating requests", () => {
     cy.visit(
       "https://cypress-training-page-wpaczula.vercel.app/2/simulating-requests"
     );
-    loginPage.emailInput().type("test@user.com");
-    loginPage.passwordInput().type("Password123");
-    loginPage.loginButton().click();
+    loginPage.emailInput.type("test@user.com");
+    loginPage.passwordInput.type("Password123");
+    loginPage.loginButton.click();
   });
 
   it("should show information if blik failed due to not found phone number", () => {
@@ -34,9 +34,9 @@ describe("Simulating requests", () => {
     }).as("notFound");
     const phone = "123-123-123";
 
-    simulatingRequestsPage.ammountInput().type(5000);
-    simulatingRequestsPage.phoneInput().type(phone);
-    simulatingRequestsPage.sendButton().click();
+    simulatingRequestsPage.ammountInput.type(5000);
+    simulatingRequestsPage.phoneInput.type(phone);
+    simulatingRequestsPage.sendButton.click();
     cy.wait("@notFound");
 
     cy.contains(
@@ -51,9 +51,9 @@ describe("Simulating requests", () => {
     }).as("lackOfFunds");
     const amount = 5000;
 
-    simulatingRequestsPage.ammountInput().type(amount);
-    simulatingRequestsPage.phoneInput().type("123-123-123");
-    simulatingRequestsPage.sendButton().click();
+    simulatingRequestsPage.ammountInput.type(amount);
+    simulatingRequestsPage.phoneInput.type("123-123-123");
+    simulatingRequestsPage.sendButton.click();
     cy.wait("@lackOfFunds");
 
     cy.contains(
@@ -66,9 +66,9 @@ describe("Simulating requests", () => {
     const amount = 5000;
     const phone = "000-000-000";
 
-    simulatingRequestsPage.ammountInput().type(amount);
-    simulatingRequestsPage.phoneInput().type(phone);
-    simulatingRequestsPage.sendButton().click();
+    simulatingRequestsPage.ammountInput.type(amount);
+    simulatingRequestsPage.phoneInput.type(phone);
+    simulatingRequestsPage.sendButton.click();
     cy.wait("@request");
 
     cy.contains(

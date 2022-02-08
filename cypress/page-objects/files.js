@@ -1,6 +1,7 @@
 export default {
-    downloadButton() {
-      return cy.contains("a", "Pobierz");
-    },
+  url: '/3/files', 
+  get downloadButton() {
+    return cy.contains("a", "Pobierz");
+  },
   };
   

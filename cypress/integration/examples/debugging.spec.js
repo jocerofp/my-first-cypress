@@ -1,4 +1,6 @@
 const simpleTestPage = {
+	url: '/2/simple-test',
+
 	genderSelect() {
 		return cy.get('[name="gender"]')
 	},
@@ -26,7 +28,7 @@ const loginPage = {
 
 describe('Simple test', () => {
 	beforeEach(() => {
-		cy.visit('/2/simple-test')
+		cy.visit(simpleTestPage.url)
 		loginPage.emailInput().type('test@user.com')
 		loginPage.passwordInput().type('Password123')
 		loginPage.loginButton().click()

@@ -4,16 +4,18 @@
 // z użyciem Page Objectów 
 
 const loginPage = {
-    registerLink() { 
+    url: '/login',
+
+    get registerLink() { 
         return cy.contains('register') 
     },
-    emailInput() { 
+    get emailInput() { 
         return  cy.get('?')
     },
-    passwordInput() {
+    get passwordInput() {
         return cy.get('input[name="password"]')
     },
-    showPasswordButton() {
+    get showPasswordButton() {
         return cy.get('.chakra-input__right-element').find('button')
     },
 } 

@@ -20,7 +20,14 @@ cy.get(emailInput).type('email@gmail.com')
 
 // 2. Tworzenie obiektów zwracających cypressowe elementy ⭐️
 const loginPage = {
-    emailInput() { return cy.get('email-selector') }
+    get emailInput() { return cy.get('email-selector') }
 }
 
 // ==> examples/page-object.spec.js
+
+// dodatkowym fajnym podejściem z waszego projektu jest trzymanie property URL
+const loginPage = {
+    URL: '/login',
+
+    get emailinput() { return cy.get('email-selector')}
+}
