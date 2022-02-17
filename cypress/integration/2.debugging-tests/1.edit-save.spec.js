@@ -4,17 +4,17 @@
 const editSavePage = {
   get emojis() {
     return cy
-    .contains(/Twoje emoji/)
+    .contains(/Your emoji/)
     .next()
     .children()
   },
-  get editButton() { return cy.contains('[type="button"]', "Edytuj") },
+  get editButton() { return cy.contains('[type="button"]', "Edit") },
   get emojiIncreaseArrow() {
    return cy.get('[name="numberOfEmojis"]').next().children().eq(0)
   },
   get notRobotCheckbox() { return cy.get('[name="isNotARobot"]') },
   get saveButton() { return cy.get('[type="submit"]') },
-  get cancelButton() { return cy.contains('[type="button"]', "Anuluj") },
+  get cancelButton() { return cy.contains('[type="button"]', "Cancel") },
 };
 
 const loginPage = {
@@ -23,15 +23,15 @@ const loginPage = {
   get loginButton() { return cy.get('[type="submit"]') },
 };
 
-// ============================ TESTY ============================
-// 🐼 Sprawdź czy testy działają i wykorzystaj wcześniej zdobytą wiedzę
-// żeby naprawić te niedziałające
+// ============================ TESTS ============================
+// 🐼 Check if the tests are working using the debugging knowledge
+// fix the ones that fail
 
 describe("Edit save", () => {
   beforeEach(() => {
     cy.visit("https://cypress-training-page-wpaczula.vercel.app/2/edit-save");
-    loginPage.emailInput.type("test@user.com");
-    loginPage.passwordInput.type("Password123");
+    loginPage.emailInput.type("test@user.com"); // <---- CHANGE YOUR USER HERE
+    loginPage.passwordInput.type("Password123"); // <---- CHANGE YOUR PASSWORD HERE
     loginPage.loginButton.click();
   });
 

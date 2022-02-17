@@ -1,6 +1,6 @@
 // plugins/index.js
-// Najpierw zainstaluj paczkę cypress-dotenv - npm i cypress-dotenv -D / yarn add cypress-dotenv -D
-// Później wklej kodzik do pliku z pluginami:
+// 🐼 Install cypress-dotenv - npm i cypress-dotenv -D / yarn add cypress-dotenv -D
+// Then paste the code into plugin file:
 
 const dotenvPlugin = require('cypress-dotenv')
 const path = require('path')
@@ -17,10 +17,9 @@ module.exports = (_on, config) => {
   return config
 }
 
-// Ostatnim krokiem jest stworzenie plików .env. W zależności od podanej zmiennej środowiskowej
-// Zostanie wybrany odpowiedni plik. Dla przykładu, jeżeli odpalimy cypressa w ten sposób: npx cypress run --environment dev
-// Wykorzystany zostanie plik .env.dev
-// Wszystkie zmienne środowiskowe muszą się zaczynąć od CYPRESS_ np:
+// 🐼 Create .env files. Depending on the environment CYPRESS_ENV a proper file will be used. For instance if we run
+// npx cypress run --environment dev .env.dev will be used
+// Each variable needs to start with CYPRESS_ for example:
 
 /**
  CYPRESS_USER_EMAIL=admin@gmail.com
@@ -30,7 +29,7 @@ module.exports = (_on, config) => {
  CYPRESS_API_URL=https://dev.com
  */
 
- // Aby je pobrać należy użyć metody Cypress.env() np
+ // To get a variable we can use Cypress.env()
  Cypress.env('USER_EMAIL')
  Cypress.env('USER_PASSWORD')
  Cypress.env('BASE_URL')

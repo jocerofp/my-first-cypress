@@ -1,9 +1,8 @@
-// Setup podzielony jest na parę części, ale jest dość prosty
-// Będziemy używali cucumber preprocesora, który poradzi sobie z plikami
-// .feature i odpali napisane przez nas testy
+// Setup is quite simple and has few steps
+// We will use cucumber preprocesor which will handle feature files
 
-1. Instalujemy paczkę cypress-cucumber-preprocessor: `npm i -D cypress-cucumber-preprocessor`
-2. Inicjujemy plugin, który pozwoli nam na ładowanie plików .feature
+1. Install cypress-cucumber-preprocessor: `npm i -D cypress-cucumber-preprocessor`
+2. Add the plugin
 ```
 /// <reference types="Cypress" />
 
@@ -16,16 +15,16 @@ module.exports = (on, config) => {
   on("file:preprocessor", cucumber());
 };
 ```
-3. Dodajemy odpowiednią konfigurację ścieżek dla naszych stepów w `package.json`
+3. Add path configuration in `package.json`
 ```
 "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
-    "commonPath": "cypress/integration/4.bdd/common" <--potrzebne tylko jeżeli nasze testy nie są bezpośrednio w integration
+    "commonPath": "cypress/integration/4.bdd/common" <-- required only if or tests are not directly in integration folder
 }
 ```
-4. Dodajemy plik .feature i tworzymy od razu folder obok niego o tej samej nazwie
+4. Add .feature file and create steps in the folder next to it with the same name
 ```
 |
 --> login.feature
---> login/nasze_pliki_ze_stepami.js
+--> login/steps.js
 ```

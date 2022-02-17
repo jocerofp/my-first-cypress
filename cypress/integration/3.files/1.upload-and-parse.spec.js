@@ -1,31 +1,30 @@
 /// <reference types="cypress" />
 
-// 🐼 Uzyteczne metody:
-// cy.attachFile(FIXTURE_FILE, options) - upload pliku
-// cy.wrap(variable) - wrzuć zwykłą zmienną do cypressa aby wywoływać na niej jego metody
-// .children() - pobierz dzieci
-// .eq(index) - pobierz wartość o danym indexie
-// .should('have.text', text) 
+// 🐼 Useful methods:
+// cy.attachFile(FIXTURE_FILE, options) - upload a file
+// cy.wrap(variable) - wrap normal variable into the cypress chain to use cypress methods
+// .children() - get children
+// .eq(index) - get child at index
+// .should('have.text', text) - assert the text
 
 import filePage from "../../page-object/file";
-// 🐼 Dodaj bibliotekę cypress-file-upload i dodaj jej komendę w pliku commands według instrukcji na npm
-// 🐼 Dodaj bibliotekę papaparse aby ułatwić parsowanie i zaimportuj ją
+// 🐼 Add cypress-file-upload library and add the command according to their npm page
+// 🐼 Add papaparse library and import it
 
 describe("Files", () => {
   beforeEach(() => {
     /*
-    * Tutaj możesz umieścić wejście na stronę + logowanie
+    * Go to your page and invoke log in command 
     */
   });
 
    /**
-     Wejdź na stronę /3/files
-     Wrzuć plik "users.csv" (folder fixtures) poprzez drag-n-drop
-     Kliknij przycisk "Podgląd"
-     Spodziewany rezultat: użytkownicy z pliku CSV pokazują się pod przyciskiem w tabelce
-     sparsuj plik z folderu fixtures i sprawdź czy każdy wiersz posiada dobre dane
-     */
-    it('should 1', () => {
+    Visit /3/files
+    Drag and drop "users.csv" file (fixtures directory)
+    Click "Preview" button
+    Expected result: users from the CSV file are visible under the table
+    */
+    it('should...', () => {
         
     })
 });

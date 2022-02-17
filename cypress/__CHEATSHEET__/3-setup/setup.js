@@ -1,13 +1,13 @@
-// ================================== POSTAW TO SAM =========================================
+// ================================== SETUP =========================================
 
-// Po pierwsze stwórz nowy folder i zainicjuj npma:
+// Init npm repo:
 `npm init`
 
-// Drugim krokiem będzie instalowanie cypressa
-`npm i cypress`
+// Install cypress
+`npm i cypress -D`
 
-// I odpalenie w trybie open, aby zainicjalizowac projekt
+// Run cypress the first time, so the project is initialized
 `npx cypress open`
 
-// Kolejne razy mozna odpalać w trybie headless
+// Run cypress in headless mode
 `npx cypress run`

@@ -1,4 +1,4 @@
-// PATTERNY KTÓRE OKAZAŁY SIĘ PRZYDATNE PRZY INTERCEPCIE
+// Intercept patterns
 
 // JS
 const interceptFactory = (method, pathname, requestName) => {

@@ -2,19 +2,21 @@ import filePage from '../../page-objects/files';
 
 describe("Files", () => {
   beforeEach(() => {
-    cy.visit("/3/files");
-    cy.login();
+    cy.visit(filePage.url);
+    loginPage.emailInput.type("test@user.com");
+    loginPage.passwordInput.type("Password123");
+    loginPage.loginButton.click();
   });
 
   it("should download the cypress image", () => {
-    // 🐼 Kliknij w link z pobraniem pliku
+    // 🐼 Click on the link to get the file
     filePage.downloadButton().click();
 
-    // 🐼 pobierz folder z downloadem i sprawdź czy dany plik tam jest
-    // Cypress.config("downloadsFolder") zwraca ścieżkę do folderu "downloads"
+    // 🐼 Get the download folder and check if the file is there
+    // Cypress.config("downloadsFolder") returns the path "downloads"
   });
 
   it("should read the fixture file", () => {
-    // 🐼 Ten test tylko parsuje plik fixture i sprawdza czy wiersze są zdefiniowane
+    // 🐼 Test to only parse the file and check how it works
   });
 });

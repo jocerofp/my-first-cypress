@@ -9,7 +9,7 @@ const simpleTestPage = {
 		return cy.get('[type="submit"]')
 	},
 	helloManToast(name) {
-		return cy.contains(`Witaj ${name}! Cieszę się, że wysłałeś ten formularz!`)
+		return cy.contains(`Hi ${name}! I'm happy you sent this form!`)
 	},
 }
 
@@ -29,7 +29,7 @@ describe('Simple test', () => {
 
 	it('should display welcome message for man with a name', () => {
 		const name = 'Jan'
-		const gender = 'Mężczyzna'
+		const gender = 'Man'
 
 		simpleTestPage.genderSelect.select(gender)
 		simpleTestPage.nameInput.type(name)

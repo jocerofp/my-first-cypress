@@ -1,26 +1,24 @@
 /// <reference types="cypress" />
 
-// 🐼 Przydatne metody
+// 🐼 Useful methods:
 // cy.intercept(METHOD, URL, { fixture: FILE, statusCode: CODE }).as('request')
 // cy.wait('@request')
 
 describe('Make my blik payment', () => {
     beforeEach(() => {
         /*
-         * Tutaj możesz umieścić wejście na stronę + logowanie - ten krok powtarza się dla każdego test case'u 
+         * Go to your page and invoke log in command 
          */
     })
     
     /*
     Test case 1
-        Wejdź na stronę /1/simulating-requests
-        Wypełnij kwotę
-        Wypełnij numer telefonu
-        Wyślij formularz przyciskiem "Prześlij blikiem" 
-        (w tym przypadku nie symuluj odpowiedzi, wykorzystaj faktyczny request)
-        Spodziewany rezultat: Jeżeli numer telefonu istnieje i przelew został zrobiony 
-            użytkownik powinien zobaczyć informację o treści 
-            "Kwota *KWOTA*PLN została poprawnie przelana na numer *NUMER*"
+        Visit /1/simulating-requests
+        Fill amount input
+        Fill phone number input
+        Send with "Send via BLIK" button
+        Expected result: If the phone number exists and the transfer was made (status 200 in "/api/blik") 
+            the user should see a message: "Amount USD*AMOUNT* was transfered to *PHONE_NUMBER*"
     */
     it('should 1...', () => {
         
@@ -28,14 +26,12 @@ describe('Make my blik payment', () => {
     
     /*
     Test case 2
-        Wejdź na stronę /1/simulating-requests
-        Wypełnij kwotę
-        Wypełnij numer telefonu
-        Wyślij formularz przyciskiem "Prześlij blikiem"
-        Spodziewany rezultat: Jeżeli numer telefonu nie istnieje 
-            (status 404 i określone body { code: "number_not_found" }) 
-            użytkownik powinien zobaczyć informację o treści 
-            "Nie udało się znaleźć odbiorcy o numerze telefonu *NUMER_TELEFONU*"
+        Visit /1/simulating-requests
+        Fill amount input
+        Fill phone number input
+        Send with "Send via BLIK" button
+        Expected result: If the phone number does not exist (status 404 and body { code: "number_not_found" } in "/api/blik") 
+            the user should see a message: "We couldn't find the recipient with given phone number: *PHONE_NUMBER*".
     */
    it('should 2...', () => {
        
@@ -43,14 +39,12 @@ describe('Make my blik payment', () => {
 
     /* 
     Test case 3
-        Wejdź na stronę /1/simulating-requests
-        Wypełnij kwotę
-        Wypełnij numer telefonu
-        Wyślij formularz przyciskiem "Prześlij blikiem"
-        Spodziewany rezultat: Jeżeli konto nie ma wystarczających środków 
-        (status 403 i określone body { code: "lack_of_funds" }) 
-        użytkownik powinien zobaczyć informację o treści 
-        "Nie udało się przesłać *KWOTA* PLN z uwagi na brak środków na koncie"
+       Visit /1/simulating-requests
+        Fill amount input
+        Fill phone number input
+        Send with "Send via BLIK" button
+        Expected result: If the bank account does not have enough funds (status 403 and body { code: "lack_of_funds" }) 
+        the user should see a message: "We couldn't send USD*AMOUNT* because of lack of funds"
     */
    it('should 3...', () => {
        

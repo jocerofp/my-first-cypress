@@ -1,76 +1,75 @@
-// 🐼 Aby znaleźć element cypress wykorzystuje cssowe selektory i przechodzenie pomiędzy elementami na różne sposoby
-// poniżej opisane są metody, które mogą ci się przydać do realizacji ćwiczeń. Jeżeli czujesz, że selektor jest niepewny
-// możesz go przetestować w przeglądarce. Otwóz devtoolsy na stronie (F11), przejdź do konsoli i wpisz $(TWOJ_SELEKTOR).
-// Metoda ta zwróci ci rezultat twojego selektora.
+// 🐼 To find an element cypress uses css selectors and going between nodes using various ways
+// You can find methods, that will help you during exercises below. If you feel, some selector is not right
+// you can test it in the browser. Open the devtools on the page (F12), go to the console and write $(YOUR_SELECTOR).
+// The method will return the result of your selector
 
-// ============================ METODA GET ============================
+// ============================ GET ============================
 
-// 🐼 Metoda get pozwala na odnalezienie elementu za pomocą cssów
-// znaczy to, że możesz szukać za pomocą klas, id czy atrybutów dodanych do htmla
-// poniżej znajduje się parę przykładów
+// 🐼 GET method allows to find an element using css selector
+// it means that you can use classes, ids, attributes or tags
+// you can find some examples below
 
-cy.get("button");                               // znajdź element button
-cy.get("#my-id");                               // znajdź element o id my-id
-cy.get('[name="email"]');                       // znajdź element o atrybucie name równym "email"
+cy.get("button");                               // find element with button tag
+cy.get("#my-id");                               // find element with id my-id
+cy.get('[name="email"]');                       // find element with name attribute = "email"
 
-// ===== WAŻNA SPRAWA =====
-// Cypress nie ma wsparcia dla XPathów. Nie jest to jednak do końca wada
-// CSSowe selektory są szybsze
-// Zespół cypressa poleca odizolowanie od stylowania i struktury HTMLa:
+// ===== IMPORTANT =====
+// Cypress doesn't support xpath out of the box, but it is not a disadvantage comparing to selenium
+// CSS selectors are faster. If your team really needs them you can install a plugin via npm
+// Cypress team suggests to not be dependent on the styling/HTML:
 
-cy.get('button')                                // niestabilny selektor, przestanie działać po dodaniu kolejnego przycisku
-cy.get('.button')                               // równiez przestanie działać po dodaniu innego przycisku
-cy.get('#submit-button')                        // lepiej, ale dalej połączony ze stylami albo jsowymi listenerami
-cy.get('[name=email]')                          // mniej podatne na zmianę, ale połączony ze semantyką HTMLa
-cy.contains('Submit')                           // userzy szukają elementów po tekście, w niektórych projektach tekst nie jest zmienny
-cy.get('[data-cy=submit]')                      // odizolowane od CSSa i HTMLa, ale wymaga wprowadzenia zmian do aplikacji
+cy.get('button')                                // not a stable selector it will stop working if another button will be added to the page
+cy.get('.button')                               // also not reliable if .button is a class added to a generic button component for the same reason as above
+cy.get('#submit-button')                        // this one is better but is connected to styling/JS listeners
+cy.get('[name=email]')                          // it is less change-prone, but is connected with HTML semantic
+cy.contains('Submit')                           // users tend to search by text and sometimes it is fine to use it - it defines user's flow
+cy.get('[data-cy=submit]')                      // isolated from CSS and HTML, but requires changes in the application code
 
-// ============================ METODA FIND ============================
+// ============================ FIND ============================
 
-// 🐼 Metoda find pozwala wyszukać element na wybranej części dokumentu
-// zazwyczaj możesz jej użyć po tym, jak wyszukasz już coś za pomocą metody get
+// 🐼 FIND method allows to look for an element in a given container. Most often it is used right after GET
 
-cy.get("#container").find(".toast");            // znajdź element o id "container" i wewnątrz niego szukaj elementu z klasą .toast
+cy.get("#container").find(".toast");            // find element with id "container" and inside look for an element with class ".toast"
 
-// ============================ METODA CONTAINS ============================
+// ============================ CONTAINS ============================
 
-// 🐼 Metoda contains pozwoli ci na wyszukanie za pomocą tekstu
-// Możesz w niej również określić cssowy selektor, który dokładniej pozwoli
-// zidentyfikować wyszukiwany element. Można ją również łączyć tak jak metodę find
+// 🐼 CONTAINS allows to search using text/regex. It also allows to declare a css selector first to make the selector more precise
+// it can also be used with FIND
 
-cy.contains("Save");                            // znajdź element z tekstem "Save"
-cy.contains("/regex/");                         // znajdź element z tekstem spełniającym reges
-cy.contains('.button[type="submit"]', "Save");  // znajdź submit button z tekstem "Save"
+cy.contains("Save");                            // find element with text "Save"
+cy.contains("/regex/");                         // find element with text which matches the regex
+cy.contains('.button[type="submit"]', "Save");  // find submit button with text "Save"
 
-// ============================ METODA NEXT ============================
+// ============================ NEXT ============================
 
-// 🐼 Metoda next pozwala na wybranie kolejnego elementu "poniżej". Bazuje ona na hierarchii więc trzeba korzystać z niej z rozwagą
+// 🐼 Method allows to get the element "below". It is based on the hierarchy of the DOM so we need to be careful with it
 
 // <label>Email</label>
 // <input name="email"/>
-cy.contains("Email").next();                    // metoda pozwoliłaby wybrać input powyżej
+cy.contains("Email").next();                    // get email input using the label
 
-// ============================ METODY CHILDREN I PARENT ============================
+// ============================ CHILDREN and PARENT ============================
 
-// 🐼 Metody children i parent pozwalają na przechodzenie pomiędzy elementami "wgląb". Podobnie jak next bazuje jednak na hierarchii
-// więc testy z jej użyciem mogą okazać się kruche
+// 🐼 Methods CHILDREN and PARENT allows to go in and out of a node children. Similar to NEXT is is based on the hierarchy so
+// the tests may become flaky
 
 // <ol class="list">
 //    <li>Uno</li>
 //    <li>Dos</li>
 //    <li>Tres</li>
 // </ol>
-cy.get(".list").children();                     // metoda zwróci tablicę elementów li
+cy.get(".list").children();                     // method CHILDREN will return an array of "li" elements
 
-// ============================ METODA EQ ============================
+// ============================ EQ ============================
 
-// 🐼 Jezeli bedziesz operować na liście elementów mozesz wybrac jeden o konkretnym indexie
-cy.get('#element').children().eq(1) // metoda zwróci drugi element
+// 🐼 When using array types EQ allows to pick an item at the specific index
+cy.get('#element').children().eq(1) // method will return the second child
 
-// ============================ METODA AS ============================
+// ============================ AS ============================
 
-// 🐼 Czasem może się zdarzyć, że będziesz chciał zapisać element "na potem". Aby to zrobić możesz zapisać go za pomocą metody as(ALIAS),
-// a "potem" pobrać jego wartość za pomocą funkcji get(@ALIAS) - pamiętaj o znaku małpy, dzięki temu cypress wie, że ma szukać w aliasach
+// 🐼 When some variable needs to be created cypress suggests to use AS method. It is used to create aliases. To get the value
+// of the alias we need to execute get(@ALIAS) method - the @ sign is required and this way cypress knows to look in aliases and
+// not in the DOM
 
 cy.get(".use-later")
   .as("later");
@@ -78,5 +77,5 @@ cy.get(".use-later")
 // ...
 
 cy.get("@later").then((myVariable) => {
-    // 🐼 myVariable będzie zawierał to co zapisaliśmy poprzez "as"
+    // 🐼 myVariable contains the value saved by "as" before
 }); 

@@ -2,26 +2,25 @@
 import { Given, When, Then, Before, After } from "cypress-cucumber-preprocessor/steps";
 
 Given('My step with {string} parameter', (stringVariable), () => {
-    // W ten sposób możemy zadeklaorwać, że parametr jest liczbą
-    // innte opcje to np number, boolean lub customowe typy (https://github.com/TheBrainFamily/cypress-cucumber-preprocessor#custom-parameter-type-resolves)
+    // This is how we can create a parameter in the step
+    // other types are for instance number, boolean or custom types (https://github.com/TheBrainFamily/cypress-cucumber-preprocessor#custom-parameter-type-resolves)
 })
 
 When('If a table is declared we will get it here ->', (table) => {
-    // Żeby dostać obiekty wierszy o propertiesach z nazwami kolumn należy wykonać
+    // To get parsed table with the row objects using the header we can run hashes
     table.hashes()
-    // Aby operować na czystych danych bez nagłówka
+    // To use clean two dimentional array we can use rows
     table.rows()
 })
 
-// Możemy również wykorzystywać odpowiednik beforeEach i afterEach
+// These are beforeEach/afterEach equivalents
 Before(() => {
-    // nasz kodzik przed scenariuszem możemy tutaj np wykonać strzał i zapisać
-    // dane do aliasu
-    cy.request('POST', '/init', { ala: 'ma kota'}).then(request => {
+    // we can set up our test this way
+    cy.request('POST', '/init', { foo: 'bazz'}).then(request => {
         cy.wrap(request.body).as('initBody')
     })
 })
 
 After({ tags: "@foo" }, () => {
-    // tylko jeżeli nasz scenariusz jest otagowany tagiem @foo
+    // only if our scenario has @foo tag
 })

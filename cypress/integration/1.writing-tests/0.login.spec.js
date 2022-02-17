@@ -3,22 +3,22 @@
 import loginPage from '../../page-objects/login'
 
 describe('Login', () => {
-    // 🐼 Kliknij w link
+    // 🐼 Click the link
     it('should click be able to go to register page', () => {
         cy.visit(loginPage.url)
 
-        // 🐼 Dodaj kliknięcie w ten link
+        // 🐼 Click the register link
         loginPage.registerLink
 
         cy.location('pathname').should('be.equal', '/register')
     })
     
-    // 🐼 Wpisz dane z klawiatury
+    // 🐼 Add data from the keyboard
     it('should show password content when show password button is clicked', () => {
         const password = 'Password123'
         cy.visit(loginPage.url)
 
-        // 🐼 Dodaj wpisanie zmiennej password do tego inputa
+        // 🐼 password variable needs to be typed into this input
         loginPage.passwordInput
         loginPage.showPasswordButton.click()
 
@@ -26,11 +26,12 @@ describe('Login', () => {
         loginPage.passwordInput.should('have.attr', 'type', 'text')
     })
 
-    // 🐼 Wszsytko razem - zaloguj się 
+    // 🐼 All together - log in
     it('should sign in the user with the correct credentials', () => {
         cy.visit(loginPage.url)
 
-        // 🐼 wypełnij poprawnie formularz wypełniając inputy i klikając w przycisk log in
+        // 🐼 fill the form and click log in
+        // register your user manually before that
         
         cy.location('pathname').should('be.equal', '/');
     })

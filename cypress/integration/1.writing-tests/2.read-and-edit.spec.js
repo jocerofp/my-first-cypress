@@ -1,32 +1,32 @@
 /// <reference types="cypress" />
 
 import readAndEditPage from '../../page-objects/read-and-edit'
-// 🐼 Uzyteczne metody:
-// cy.get(CSS-SELECTOR).as('alias') - zapisz "na pozniej"
-// cy.get('@alias').then((value) => { ... }) - pobierz zapisaną wartość
-// cy.get(CSS-SELECTOR).next() - wybierz element ponizej
-// cy.get(CSS-SELECTOR).children() - wybierz dzieci elementu
-// cy.get(CSS-SELECTOR).children().eq(0) - wybierz pierwsze dziecko elementu
-// cy.get(CSS-SELECTOR, TEXT) - wybierz element po tekście (mozesz uwzglednic takze selektor)
-// .check() - zaznacz znaleziony input
-// .should('have.length', length) - sprawdź długość
+// 🐼 Useful methods:
+// cy.get(CSS-SELECTOR).as('alias') - save an alias
+// cy.get('@alias').then((value) => { ... }) - get value from alias
+// cy.get(CSS-SELECTOR).next() - get next element
+// cy.get(CSS-SELECTOR).children() - get children of the element
+// cy.get(CSS-SELECTOR).children().eq(0) - get the first child of the element
+// cy.get(CSS-SELECTOR, TEXT) - find by text
+// .check() - check checkbox input
+// .should('have.length', length) - assert length
 
 describe('Get my emoji', () => {
     beforeEach(() => {
         /*
-         * Tutaj możesz umieścić wejście na stronę + logowanie - ten krok powtarza się dla każdego test case'u 
+         * Go to your page and invoke log in command 
          */
     })
     
     /*
     Test case 1
-        Wejdź na stronę /1/edit-save
-        Wczytaj liczbę emoji
-        Wejdź w tryb edycji za pomocą przycisku "Edytuj"
-        Zwiększ liczbę o 1 za pomocą strzałki w górę
-        Zaznacz checkbox, który sprawdza, że nie jesteś robotem
-        Zapisz zmiany za pomocą przycisku "Zapisz"
-        Spodziewany rezultat: Zostaje wyświetlony o jeden więcej emoji.
+        Visit /1/edit-save
+        Get emoji count
+        Go into edit mode with "Edit" button
+        Increase the number of emojis with up arrow
+        Check "not a robot" checkbox
+        Save with "Save" button
+        Expected result: One more emoji is visible.
     */
     it('should 1...', () => {
         
@@ -34,12 +34,12 @@ describe('Get my emoji', () => {
     
     /*
     Test case 2
-        Wejdź na stronę /1/edit-save
-        Wczytaj liczbę emoji
-        Wejdź w tryb edycji za pomocą przycisku "Edytuj"
-        Wyczyść input "Liczba emoji"
-        Odrzuć zmiany za pomocą przycisku "Anuluj"
-        Spodziewany rezultat: Liczba emoji pozostaje bez zmian, ale one same się zmieniają
+        Visit /1/edit-save
+Get emoji count
+Go into edit mode with "Edit" button
+Clear "Emoji count" input
+Cancel your changes
+Expected result: The count of emojis is not changed, but you get a different set of them
     */
    it('should 2...', () => {
     readAndEditPage.emojis

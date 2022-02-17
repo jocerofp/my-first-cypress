@@ -13,17 +13,16 @@ const loginPage = {
   get loginButton() { return cy.get('[type="submit"]') },
 };
 
-// ============================ TESTY ============================
-// 🐼 W tym przypadku skup się na zmianach w wymaganiach
-// developer zmienił już swój kod, a teraz czas na testy
+// ============================ TESTS ============================
+// 🐼 Focus on the domain requirements which affected the tests
 
 describe("Simulating requests", () => {
   beforeEach(() => {
     cy.visit(
       "https://cypress-training-page-wpaczula.vercel.app/2/simulating-requests"
     );
-    loginPage.emailInput.type("test@user.com");
-    loginPage.passwordInput.type("Password123");
+    loginPage.emailInput.type("test@user.com"); // <---- CHANGE YOUR USER HERE
+    loginPage.passwordInput.type("Password123"); // <---- CHANGE YOUR PASSWORD HERE
     loginPage.loginButton.click();
   });
 
@@ -40,7 +39,7 @@ describe("Simulating requests", () => {
     cy.wait("@notFound");
 
     cy.contains(
-      `Nie udało się znaleźć odbiorcy o numerze telefonu ${phone}`
+      `We couldn't find the recipient with given phone number: ${phone}`
     ).should("be.visible");
   });
 
@@ -57,7 +56,7 @@ describe("Simulating requests", () => {
     cy.wait("@lackOfFunds");
 
     cy.contains(
-      `Nie udało się przesłać ${amount}PLN z uwagi na brak środków na koncie`
+      `We couldn't send USD${amount} because of lack of funds`
     ).should("be.visible");
   });
 
@@ -72,7 +71,7 @@ describe("Simulating requests", () => {
     cy.wait("@request");
 
     cy.contains(
-      `Kwota ${amount}PLN została poprawnie przelana na numer ${phone}`
+      `Amount USD${amount} was transfered to ${phone}`
     ).should("be.visible");
   });
 });

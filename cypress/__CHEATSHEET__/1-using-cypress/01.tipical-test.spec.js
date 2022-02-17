@@ -1,13 +1,13 @@
-// ==================== TEMPLATE DLA TESTU ========================
+// ==================== TEST TEMPLATE ========================
 
-// 🐼 Żeby dodać swój kolejny test stwórz plik o rozszerzeniu .spec.js w folderze integration
-// Na samej górze pliku możesz zaimportować tutaj swoje selektory lub inne funkcje przydatne dla tego testu
-import yourThingy from "path/to/your/file";
+// 🐼 In order to add a test create a file with .spec.js extention in "integration" folder.
+// At the very top you can import your page objects or functions required for the test
+import yourThing from "path/to/your/file";
 
 describe("GROUP OF TESTS", () => {
   beforeEach(() => {
-    // 🐼 To idealne miejsce na powtarzające się funkcje takie 
-    // jak wejście na stronę czy logowanie
+    // 🐼 Ideal place for things that are repetitive for each test
+    // like visiting a page or loging in
   });
 
   it("should DO SOMETHING when SOMETHING HAPPENS", () => {});

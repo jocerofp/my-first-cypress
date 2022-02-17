@@ -6,6 +6,6 @@ describe('Setup test', () => {
 
         cy.contains('Login').should('be.visible')
         
-        cy.log('GRATULACJE, CYPRESS JEST POPRAWNIE SKONFIGUROWANY')
+        cy.log('CONGRATS, CYPRESS IS WORKING FINE')
 	})
 })

@@ -1,7 +1,6 @@
 /// <reference types="cypress" />
 
-// 🐼 Popraw selektor inputa na email i kontynuuj pisanie selektorów
-// z użyciem Page Objectów 
+// 🐼 Fix the input selector and continue to add more selectors
 
 const loginPage = {
     url: '/login',

@@ -1,34 +1,32 @@
-// ============================ SYMULOWANIE USERA ============================
+// ============================ SIMULATING USERS ============================
 
-// 🐼 Cypress ma wbudowane wiele funkcji, które pozwalają na interakcję ze znalezionymi elementami.
-// Większość z ich nazw może być bardzo intuicyjna. Poniżej znajdziesz parę, które mogą ci się przydać w ćwiczeniach
-// Załóż, że funkcja element to twoja metoda z page objectu, która zwraca element 
+// 🐼 Cypress has a lot of functions built in, which allows to interact with found elements.
+// Most of them have very straightforward names. Below you can find some that are mostly used
 
-cy.get('button').click();                       // kliknij w element na stronie
-cy.get('input').focus();                        // sfocusuj element
-cy.get('input').type('Text');                   // wpisz tekst do inputa, lub wciśnij przycisk na klawiaturze (należy podać string z jego nazwą np. {ENTER})
-cy.get('input').clear();                        // wyczyść input
-cy.get('[type="checkbox"]').check();            // zaznacz i odznacz checkbox
+cy.get('button').click();                       // click the element (it must be visible)
+cy.get('input').focus();                        // focus an element
+cy.get('input').type('Text');                   // type somehting into the input or press a key like {ENTER}
+cy.get('input').clear();                        // clear the input
+cy.get('[type="checkbox"]').check();            // check and uncheck a checkbox element (it must have "checkbox" type)
 cy.get('[type="checkbox"]').uncheck();
-cy.get('[type="select"]').select('Option 1');   // wybierz opcję w dropdownie
+cy.get('[type="select"]').select('Option 1');   // choose Option 1 from select component (it has to behave like "select" element)
 
-// ============================ SYMULOWANIE KONKRETNEGO ZACHOWANIA API ============================
+// ============================ API INTERCEPTS ============================
 
-// 🐼 Oprócz tego przyda ci się także stubowanie requestów z przeglądarki. Dzięki temu możesz
-// upewnić się, że request został zrobiony. Pamiętaj aby zapisać odniesienie do requestu do aliasu i wywołać
-// metodę wait wtedy kiedy spodziewasz się jego realizacji
-// WAŻNE - intercept powinien być zadeklarowany jako pierwszy 
+// 🐼 Apart from regular operations cypress also allows to intercept API requests. This feature allows to
+// check if the request was made, wait for the request and avoid hardcoding the time in wait or check
+// how the application behaves when an error is thrown
+// IMPORTANT - intercept has to be called at the top before some interactions are made 
 
 cy.intercept("GET", "http://my-api.com/things").as("request");
 cy.wait("@request");
 
-// 🐼 Możesz również zapewnić określoną odpowiedź serwera na przykład poprzez ładowanie swojego pliku fixture (wystarczy, że wrzucisz jsona do folderu fixtures)
-// mozna tez zmieniac status odpowiedzi poprzez property statusCode
+// 🐼 To mock a response from the server we can specify fixture/body and status code like this:
 cy.intercept("POST", "http://my-api.com/things", { fixture: "fixture.json", statusCode: 404 });
 
-// ============================ WYCIAGANIE DANYCH ============================
+// ============================ GETTING PROPERTIES ============================
 
-// 🐼 Metoda która przydaje się przy wyciąganiu właściwości danych elementów (tak naprawdę z uzyciem jQuery). 
-// Pozwala na sprawdzenie długości tablicy list itemów lub tekstu, który znajduje się w paragrafie
+// 🐼 A method that is useful to get some properties from cypress objects is ITS. Cases where it may be useful
+// are getting the length of the children, getting the text content and so on.
 
-cy.get('ul').children().its('length')           // Pobierz liczbę dzieci w liście 
+cy.get('ul').children().its('length') 

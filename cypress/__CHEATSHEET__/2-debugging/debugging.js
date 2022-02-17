@@ -1,30 +1,29 @@
-// ================================== METODA RĘCZNA =========================================
+// ================================== MANUAL WORK =========================================
 
-// 🐼 Najprostszym sposobem na debugowanie może okazać się przenalizowanie błędu cypressa - są bardzo opisowe
-// i "cofanie się w czasie" klikająć po krokach i sprawdzając ich rezultaty
+// 🐼 By far the easiest way to debug is checking out what error is shown by cypress - they are mostly
+// very good and checking previous screenshots by time travel going step by step might be just enough
 
-// ================================== METODA DEBUG =========================================
+// ================================== DEBUG =========================================
 
-// 🐼 Jeżeli potrzebujesz zatrzymać test w danym miejscu i sprawdzić, co aktualnie robił cypress
-// możesz użyć metody .debug() Pamiętaj żeby otworzyć devtoolsy z przeglądarki za pomocą przycisku F12
-// pozwoli ci to na podglądnięcie szczegółów dotyczących kroku
+// 🐼 If we need to stop and see what is returned by some specific method we can use DEBUG method
+// It is crutial to open the dev tools first though, so the code is stopped. The results are
+// shown in the console
 
-cy.get('button').click().debug() // wyświetli kliknięcie w button jako subject w konsoli
+cy.get('button').click().debug() // it will show what was "click" invoked with in the console
 
-// ================================== METODA PAUSE =========================================
+// ================================== PAUSE =========================================
 
-// 🐼 Żeby zatrzymać test i sprawdzić jaki jest w danej chwili stan aplikacji, możesz użyć .pause()
-// cypress przejdzie wtedy w tryb krokowy - będziesz w stanie przechodzić kolejno po krokach
-// lub wznowić test. Może się to okazać przydatne szczególnie podczas testowania requestów, ponieważ
-// można monitorować sprawdzić zakładkę network
+// 🐼 In order to go to step by step mode we can use PAUSE method. Then we can controll
+// how fast the methods are run and examine the issue slower. It may be super useful
+// to check the requests
 
-cy.pause() // wpisane w jakiekolwiek miejsce spowoduje przejście w tryb krokowy
+cy.pause() // from this point cypress will go step by step
 
-// ================================== METODA NATYWNA - DEBUGGER =========================================
+// ================================== NATIVE BROWSER DEBUGGER =========================================
 
-// 🐼 Ostatni sposób na debuggowanie może okazać się być "tricky". Możesz dodać słowo kluczowe debugger
-// w konkretnym miejscu w teście, ale musisz pamiętać o tym, że cypress działa asynchronicznie. Dodaj
-// debugger po "wyczekaniu" komendy dzięki methodzie then()
+// 🐼 The last way to debug is the native debugger keyword. It is a synchronous method which will
+// stop cypress' code and let us see in sources what are the variables in the scope
+// it only makes sense after THEN method is run
 
 cy.get('.my-item').then(item => {
     debugger;

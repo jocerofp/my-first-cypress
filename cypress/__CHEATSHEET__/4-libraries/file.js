@@ -1,17 +1,15 @@
-// ==================== LIBKI =======================
+// ==================== LIBRARIES =======================
 
-// Czasami cypress nie ma natywnie wsparcia dla niektórych ficzerów i użyteczne okazują się libki
-// Jedną z częściej spotykanych funkcjonalności, do których można użyć bibliotek są działania nia plikach
-// Polecam gorąco cypress-file-upload do uploadowania plików zarówno przez drag and drop jak i klasycznie
-// przez kliknięcie w przycisk.
+// 🐼 Sometimes cypress doesn't provide something out of the box and we need to get a third party library
+// libraries that will be useful in our exercises will be cypress-file-upload which allows to upload
+// a file either by a normal input or drag and drop
 
 // https://www.npmjs.com/package/cypress-file-upload
 
+// 🐼 parsing CSV is also a standard thing to do. There is no point to do it manually each time when there
+// are so many good libraries on npm. The one that I prefer is called papaparse. It has an easy interface
+// and allows to parse files efficiently. Downloading file from disk can be done by cypress directly:
 
-// Zdarza się tez, że trzeba sparsować jakiś plik CSV. Nie ma co robić tego ręcznie
-// Polecam bibliotekę o śmiesznej nazwie papaparse. Pozwala w bardzo prosty sposób sparsować plik który jest
-// pobrany jako string używając nagłówków jako nazwy propertasów obiektu. Samo pobieranie pliku z dysku jest
-// dostępne w cypressie od ręki przez funkcję readFile
 import Papa from "papaparse";
 
 cy.readFile('path/to/file/from/the/root/of/the/project').then(file => {
@@ -20,12 +18,11 @@ cy.readFile('path/to/file/from/the/root/of/the/project').then(file => {
     const {data} = parsedFile;
 })
 
-// Podczas parsowania używamy funkcji "then" przez co "wychodzimy" z chaina cypressa, żeby do niego wrócić, możemy
-// użyć funkcji wrap. Pozwoli nam to na używanie innych metod takich jak its, should czy jak w przypadku tablic each
-// Da to nam jedną znaczącą zaletę - wszystkie takie działania będziemy widzieli w pasku z boku podczas uruchamiania
-// cypressa i będziemy mogli w nie kliknąć, żeby "wypluć" wynik na konsolę. Warto jednak "wrapować" raz
-// i zapisać sobie wynik w aliasie zamiast wrappować co linijka tej samej wartości. Dzięki temu panel jest czytelniejszy
-//  Ponizej znajduje się przykład jak przejść przez sparsowany plik.
+// ========================== WRAP =============================
+
+// 🐼 When parsing we use often use "then" method and we are out of cypress chain. The functions won't be visible in
+// the runner anymore but we can go back. To do it we can use WRAP method. By doing it this way we can
+// see what values we are operating with without a need to use the native debugger
 
 const users = [];
 cy.wrap(users).each(user => {
@@ -34,8 +31,8 @@ cy.wrap(users).each(user => {
     cy.get('@user').its('id').should('not.be.undefined');
 })
 
-// Innym sposobem, który też działa jest użycie "expect" i czystego JSa. Nie widzimy jednak wtedy tego co się dzieje na konsoli
-// Preferowany sposób zależy wg mnie od ustalenia w zespole lub od sytuacji
+// Another way would be the clean JS and expect, but as mentioned it won't be shown in the runner. It is up to the team to 
+// decide the preferred way
 
 const users = [];
 users.forEach(user => {

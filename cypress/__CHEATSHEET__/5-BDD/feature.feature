@@ -1,21 +1,20 @@
-# W VS code polecam plugin Cucumber (Gherkin) Full Support
-# Pomaga kolorować składnie
-# Poniżej przykładowe testy w BDD
+# In VS code I suggest using plugin Cucumber (Gherkin) Full Support
+# It shows the syntax and allows to check the step implementation
 
 Feature: User login
     As a User
     I want to be able to log in
     To be able to use the application
 
-    # customowe tagi można nadawać w celu odpalania konkretnych case'ów bądź
-    # do obsługi before/after, zobaczymy to za chwilę
+    # custom tags can be added to run specific case runs
+    # or handle before and after
     @my-custom-tag
     Scenario: Login with correct credentials
         Given I am on the "login" page
         When I provide correct credentials
         Then I should be on the "home" page
 
-    # tag focus pozwala odpalić tylko jeden test
+    # focus tag is the same as running it.only
     @focus 
     Scenario: Error handling for incorrect credentials
         Given I am on the "login" page

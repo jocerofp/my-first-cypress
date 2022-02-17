@@ -1,26 +1,26 @@
 /// <reference types="cypress" />
 
-// 🐼 Uzyteczne metody:
-// cy.get(CSS-SELECTOR) - wybierz element
-// cy.get(CSS-SELECTOR, TEXT) - wybierz element po tekście (mozesz uwzglednic takze selektor)
-// .type(TEXT) - wpisz w input
-// .select(TEXT) - wybierz z dropdowna
-// .click() - kliknij myszą
-// .should('be.visible')
+// 🐼 Useful methods:
+// cy.get(CSS-SELECTOR) - select an element
+// cy.get(CSS-SELECTOR, TEXT) - choose an element using text
+// .type(TEXT) - type into an input
+// .select(TEXT) - choose an option from a dropdown
+// .click() - click something
+// .should('be.visible') - check if something is visible
 
 describe('Greeting form', () => {
     beforeEach(() => {
         /*
-         * Tutaj możesz umieścić wejście na stronę + logowanie - ten krok powtarza się dla każdego test case'u 
+         * Go to your page and invoke log in command 
          */
     })
     /*
     Test case 1
-        Wejdź na stronę /1/simple-test
-        Wypełnij płeć - mężczyzna
-        Wpisz imię - Jan
-        Wyślij formularz przyciskiem "Wyślij"
-        Spodziewany rezultat: Zostaje wyświetlony toast z powitaniem: "Witaj Jan! Cieszę się, że wysłałeś ten formularz!"
+        Visit /1/simple-test
+        Choose a gender - man
+        Type name - Jan
+        Send the form with "Send" button
+        Expected result: a toast with a message is shown: "Hi Jan! I'm happy you sent the form!"
     */
     it('should 1...', () => {
         
@@ -28,11 +28,11 @@ describe('Greeting form', () => {
     
     /*
     Test case 2
-        Wejdź na stronę /1/simple-test
-        Wypełnij płeć - kobieta
-        Pozostaw imię puste
-        Wyślij formularz przyciskiem "Wyślij"
-        Spodziewany rezultat: Zostaje wyświetlony toast z powitaniem: "Cześć tajemnicza nieznajoma! Cieszę się że wysłałaś ten formularz!"
+        Visit /1/simple-test
+        Choose a gender - woman
+        Leave name field empty
+        Send the form with "Send" button
+        Expected result: a toast with a message is shown: "Hi misterious stranger! I'm happy you sent the form!"
     */
    it('should 2...', () => {
        

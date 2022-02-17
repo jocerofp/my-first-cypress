@@ -13,4 +13,3 @@ export const interceptFactory = (method: Method, pathname: string, requestName: 
     }
   }
   
-// użycie w pliku interceptFactory.js
