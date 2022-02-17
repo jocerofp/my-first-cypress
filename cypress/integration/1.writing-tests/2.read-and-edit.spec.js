@@ -35,11 +35,11 @@ describe('Get my emoji', () => {
     /*
     Test case 2
         Visit /1/edit-save
-Get emoji count
-Go into edit mode with "Edit" button
-Clear "Emoji count" input
-Cancel your changes
-Expected result: The count of emojis is not changed, but you get a different set of them
+        Get emoji count
+        Go into edit mode with "Edit" button
+        Clear "Emoji count" input
+        Cancel your changes
+        Expected result: The count of emojis is not changed, but you get a different set of them
     */
    it('should 2...', () => {
     readAndEditPage.emojis
