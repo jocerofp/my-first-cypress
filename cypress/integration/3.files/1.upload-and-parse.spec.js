@@ -7,7 +7,7 @@
 // .eq(index) - get child at index
 // .should('have.text', text) - assert the text
 
-import filePage from "../../page-object/file";
+import filePage from "../../page-objects/files";
 // 🐼 Add cypress-file-upload library and add the command according to their npm page
 // 🐼 Add papaparse library and import it
 
