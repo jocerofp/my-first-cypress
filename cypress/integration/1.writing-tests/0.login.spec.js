@@ -3,35 +3,37 @@
 import loginPage from '../../page-objects/login'
 
 describe('Login', () => {
-    // 🐼 Click the link
-    it('should click be able to go to register page', () => {
-        cy.visit(loginPage.url)
+    // 🐼 Kliknij w link
+    it.only('should click be able to go to register page', () => {
+        cy.visit('/login')
 
-        // 🐼 Click the register link
-        loginPage.registerLink
+        loginPage.emailInput
+        loginPage.passwordInput
+        loginPage.showPasswordButton
+        // 🐼 Dodaj kliknięcie w ten link
+        // loginPage.registerLink()
 
-        cy.location('pathname').should('be.equal', '/register')
+        // cy.location('pathname').should('be.equal', '/register')
     })
     
-    // 🐼 Add data from the keyboard
+    // 🐼 Wpisz dane z klawiatury
     it('should show password content when show password button is clicked', () => {
         const password = 'Password123'
-        cy.visit(loginPage.url)
+        cy.visit('/login')
 
-        // 🐼 password variable needs to be typed into this input
-        loginPage.passwordInput
-        loginPage.showPasswordButton.click()
+        // 🐼 Dodaj wpisanie zmiennej password do tego inputa
+        loginPage.passwordInput()
+        loginPage.showPasswordButton().click()
 
-        loginPage.passwordInput.should('have.value', password)
-        loginPage.passwordInput.should('have.attr', 'type', 'text')
+        loginPage.passwordInput().should('have.value', password)
+        loginPage.passwordInput().should('have.attr', 'type', 'text')
     })
 
-    // 🐼 All together - log in
+    // 🐼 Wszsytko razem - zaloguj się 
     it('should sign in the user with the correct credentials', () => {
-        cy.visit(loginPage.url)
+        cy.visit("/login");
 
-        // 🐼 fill the form and click log in
-        // register your user manually before that
+        // 🐼 wypełnij poprawnie formularz wypełniając inputy i klikając w przycisk log in
         
         cy.location('pathname').should('be.equal', '/');
     })

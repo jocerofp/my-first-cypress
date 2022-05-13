@@ -1,4 +1,7 @@
 {
-	"baseUrl": "https://cypress-training-page-wpaczula.vercel.app",
-	"ignoreTestFiles": "*.{steps,page}.js"
+	
+	"baseUrl": "https://designmodo.com/my-account/sign-in/",
+	"ignoreTestFiles": "*.{steps,page}.js",
+	"watchForFileChanges": false,
+	"defaultCommandTimeout": 1200
 }

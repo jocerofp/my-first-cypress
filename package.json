@@ -4,7 +4,7 @@
   "description": "Cypress training",
   "main": "index.js",
   "scripts": {
-    "test": "cypress open"
+    "cy:run": "cypress open"
   },
   "author": "",
   "license": "ISC",
@@ -14,7 +14,10 @@
     "cypress-cucumber-preprocessor": "^4.3.1"
   },
   "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": true,
+    "nonGlobalStepDefinitions": false,
     "commonPath": "cypress/integration/4.bdd/common"
+  },
+  "dependencies": {
+    "faker": "^6.6.6"
   }
 }
