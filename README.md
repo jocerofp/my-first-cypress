@@ -11,6 +11,7 @@ Steps to set things up on your own:
 4. Run `0.login.spec.js`
 5. Happy coding! 😄
 
+
 ## Branches
 
 On this repo you can find TS and BDD branches which explain how you can integrate those tools into cypress
