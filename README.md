@@ -1,5 +1,6 @@
 # cypress-training-starter
 
+
 Repository containing the starter repo for the cypress training.
 
 Steps to set things up on your own:
