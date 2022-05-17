@@ -27,35 +27,35 @@ context("Login authentication", () => {
             expect(text.trim()).equal('Login to Designmodo')
       });
 
-        cy.get('div > h1').invoke('text').then((text) => {
-            expect(text.trim()).equal('Login to Designmodo')
-        });
-        cy.get('label:nth-child(1) > div').invoke('text').then((text) => {
-            expect(text.trim()).equal('Your Email')
-        }); 
+//         cy.get('div > h1').invoke('text').then((text) => {
+//             expect(text.trim()).equal('Login to Designmodo')
+//         });
+//         cy.get('label:nth-child(1) > div').invoke('text').then((text) => {
+//             expect(text.trim()).equal('Your Email')
+//         }); 
         
       
-        cy.get('label:nth-child(2) > div').invoke('text').then((text) => {
-            expect(text.trim()).equal('Password')
-        });
-        cy.get('div:nth-child(3) > label').invoke('text').then((text) => {
-            expect(text.trim()).equal('Remember me')
-        });
-        cy.get('div:nth-child(4) > label').invoke('text').then((text) => {
-            expect(text.trim()).equal('I agree to storage of my data according to Privacy Policy.')
-        });
-        cy.get('div.align-center.margin-top-3 > a').invoke('text').then((text) => {
-            expect(text.trim()).equal('Forgot your password or cannot log in?')
-        });
-        // var textData = [
-        //     ['div > h1', 'Login to Designmodo'],
-        //     ['label:nth-child(1) > div', 'Your Email'],
-        //     ['label:nth-child(2) > div', 'Password'],
-        //     ['div:nth-child(3) > label', 'Remember me'],
-        //     ['div:nth-child(4) > label', 'I agree to storage of my data according to Privacy Policy.'],
-        //     ['div.align-center.margin-top-3 > a', 'Forgot your password or cannot log in?']
-        // ];
-        // cy.verifyTextLabels(textData)
+//         cy.get('label:nth-child(2) > div').invoke('text').then((text) => {
+//             expect(text.trim()).equal('Password')
+//         });
+//         cy.get('div:nth-child(3) > label').invoke('text').then((text) => {
+//             expect(text.trim()).equal('Remember me')
+//         });
+//         cy.get('div:nth-child(4) > label').invoke('text').then((text) => {
+//             expect(text.trim()).equal('I agree to storage of my data according to Privacy Policy.')
+//         });
+//         cy.get('div.align-center.margin-top-3 > a').invoke('text').then((text) => {
+//             expect(text.trim()).equal('Forgot your password or cannot log in?')
+//         });
+        var textData = [
+            ['div > h1', 'Login to Designmodo'],
+            ['label:nth-child(1) > div', 'Your Email'],
+            ['label:nth-child(2) > div', 'Password'],
+            ['div:nth-child(3) > label', 'Remember me'],
+            ['div:nth-child(4) > label', 'I agree to storage of my data according to Privacy Policy.'],
+            ['div.align-center.margin-top-3 > a', 'Forgot your password or cannot log in?']
+        ];
+        cy.verifyTextLabels(textData)
     });
     it('Verify should login if username and password are valid', () => {
         // // cy.get("input[id='username']").type('mrjoe8888@gmail.com'); 
