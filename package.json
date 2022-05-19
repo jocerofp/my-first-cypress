@@ -18,6 +18,11 @@
     "commonPath": "cypress/integration/4.bdd/common"
   },
   "dependencies": {
-    "faker": "^6.6.6"
+    "chai": "^4.3.6",
+    "es6-promisify": "^7.0.0",
+    "express": "^4.18.1",
+    "faker": "^6.6.6",
+    "mssql": "^8.1.0",
+    "util.promisify": "^1.1.1"
   }
 }

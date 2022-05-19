@@ -1,7 +1,21 @@
 {
-	
-	"baseUrl": "https://designmodo.com/my-account/sign-in/",
-	"ignoreTestFiles": "*.{steps,page}.js",
+	"defaultCommandTimeout": 60000,
+	"responseTimeout": 120000,
+	"requestTimeout": 13000,
+	"pageLoadTimeout": 18000,
+	"blockHosts": ["io.maqpie.com"],
+	"ignoreTestFiles": ["*.md", "*.ts", "*.DS_Store"],
+	"nodeVersion": "system",
+	"video": false,
+	"reporter": "junit",
+	"reporterOptions": {
+		"mochaFile": "results/report.xml",
+		"toConsole": true
+	},
+	"viewportWidth": 1280,
+	"viewportHeight": 800,
 	"watchForFileChanges": false,
-	"defaultCommandTimeout": 1200
+	"failOnStatusCode": false,
+	"chromeWebSecurity": false,
+	"baseUrl": "https://teamsallocationmanagerapi.azurewebsites.net/"
 }
